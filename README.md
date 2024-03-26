@@ -111,4 +111,12 @@ Heidi SQL is a database client. It enables our databases to connect the mySQL. T
 
 <br />
 
+<h4>Clean up</h4>
+
+- Delete: C:\inetpub\wwwroot\osTicket\setup
+- Set Permissions to “Read” only: C:\inetpub\wwwroot\osTicket\include\ost-config.php
+
+  <br />
+
+  
 <h2>Congrats!! You have a help desk ticketing system</h2>
