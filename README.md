@@ -111,4 +111,4 @@ Heidi SQL is a database client. It enables our databases to connect the mySQL. T
 
 <br />
 
-<h2>Congrats!! you have a help desk ticketing system</h2>
+<h2>Congrats!! You have a help desk ticketing system</h2>
