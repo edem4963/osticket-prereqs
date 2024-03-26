@@ -17,34 +17,98 @@ This tutorial outlines the prerequisites and installation of the open-source hel
 
 <h2>List of Prerequisites</h2>
 
-- Item 1
-- Item 2
-- Item 3
-- Item 4
-- Item 5
-
+- Create a virtual machine in azure
+- Install / Enable IIS in Windows
+- Install PHP manager
+- Install PHP
+- Download and install MySQL
+  
 <h2>Installation Steps</h2>
+<h4>Install osTicket v1.15.8</h4>
 
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-</p>
+- Download osTicket
+- Extract and copy “upload” folder to c:\inetpub\wwwroot
+- Within c:\inetpub\wwwroot, Rename “upload” to “osTicket”
+  
 <br />
 
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-</p>
+![osticket1](https://github.com/edem4963/osticket-prereqs/assets/112492837/e64bf415-cc19-4196-9d9a-9f204c348ed6)
+
+<h4>Reload IIS (Open IIS, Stop and Start the server)</h4>
 <br />
 
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-</p>
+![osticket2](https://github.com/edem4963/osticket-prereqs/assets/112492837/48fc5bbc-ba8c-4e31-908a-17fa315cd713)
+
 <br />
+
+<h4>Go to sites -> Default -> osTicket</h4>
+
+- On the right, click “Browse *:80”
+
+<br />
+
+![osticket3](https://github.com/edem4963/osticket-prereqs/assets/112492837/c9802a04-77b6-4ad6-ab5b-773f2bda39ff)
+
+<br />
+
+<h4>Note that some extensions are not enabled</h4>
+
+- Go back to IIS, sites -> Default -> osTicket
+- Double-click PHP Manager
+- Click “Enable or disable an extension”
+- Enable: php_imap.dll
+- Enable: php_intl.dll
+- Enable: php_opcache.dll
+- Refresh the osTicket site in your browse, observe the changes
+
+<br />
+
+![osticket4](https://github.com/edem4963/osticket-prereqs/assets/112492837/36beb5dc-298c-4216-80d9-3f7591a56431)
+
+<br />
+
+<h4>Rename: ost-config.php</h4>
+
+- From: C:\inetpub\wwwroot\osTicket\include\ost-sampleconfig.php
+- To: C:\inetpub\wwwroot\osTicket\include\ost-config.php
+
+<h4>Assign Permissions: ost-config.php</h4>
+
+- Right click ost-config.php go to properties
+- Go to security tab
+- Disable inheritance -> Remove All
+- New Permissions -> Everyone -> All
+
+<br />
+
+<h4>Heidi Sql</h4>
+
+Heidi SQL is a database client. It enables our databases to connect the mySQL. This is required for osticket to keep a database of all support tickets that will be created.
+
+- Click on "New" at the bottom left of Heidi SQL
+- Use password and username that you created when installing MySQL
+
+<br />
+
+![osticket6](https://github.com/edem4963/osticket-prereqs/assets/112492837/8cb613a1-4795-4e84-9982-6a4141d3ee44)
+
+
+<br />
+
+- Create "osTicket" database inside heidi (right click inside left panel -> Create New -> Database)
+
+![osticket7](https://github.com/edem4963/osticket-prereqs/assets/112492837/b9f4a029-9faf-4a55-a032-26a6a09340da)
+
+
+<br />
+
+<h4>Continue Setting up osTicket in the browser (click Continue)</h4>
+
+- Name Helpdesk
+- Default email (receives email from customers)
+- Admin account information
+- MySQL database information
+
+<br />
+
+<h2>Congrats!! you have a help desk ticketing system</h2>
